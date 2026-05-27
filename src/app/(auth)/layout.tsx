@@ -1,7 +1,11 @@
+import { RedirectIfAuthenticated } from '@/components/auth/AuthGuard'
+
 export default function AuthLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="flex min-h-full flex-col items-center justify-center px-4 py-12">
-      {children}
-    </div>
+    <RedirectIfAuthenticated>
+      <div className="flex min-h-full flex-col items-center justify-center px-4 py-12">
+        {children}
+      </div>
+    </RedirectIfAuthenticated>
   )
 }
